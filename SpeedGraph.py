@@ -17,7 +17,7 @@ filename =  sys.argv[1]
 # to manually provide the filename
 # filename = "log240318.txt"
 
-fin = open(filename, "rt")
+fin = open(filename+".txt", "rt")
 
 downloadSpeed = []
 uploadSpeed = []
@@ -29,6 +29,13 @@ year = []
 
 
 for i in fin:
+    # Check for any error
+    string = ''.join(i)
+    if "Errno" in string:
+        downloadSpeed.append(['0','0'])
+        uploadSpeed.append(['0','0'])
+        continue;
+
     # Obtain the time and day of test
     for j in daysOfWeek:
         if (i.startswith(j)):

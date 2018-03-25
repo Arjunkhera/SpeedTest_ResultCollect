@@ -20,4 +20,4 @@ do
 done
 
 echo "Running Python Script "
-python "SpeedGraph.py" "${filename}.txt"
+python "SpeedGraph.py" "${filename}"
